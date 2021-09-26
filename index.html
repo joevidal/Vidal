@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <!-- Desafio Cadastro Pessoal - Atração -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Cadastro Desafio Itaú</title>
+    <link rel="stylesheet" href="./css/estilo.css" />
+</head>
+<body>
+    <header>
+        <div class="container">
+            <img src="./img/Itau.webp" alt="Logo Itau" />
+        </div>
+    </header>
+    <section id="form">
+        <form id="form-cadastro">
+            <h3>Desafio Cadastro Pessoal</h3>
+
+            <div class="form-group">
+                <label for="nome" class="required">Nome</label>
+                <input type="text" class="input-control" placeholder="Nome *" id="nome" style="flex: 4 1" maxlength="50" 
+                    required onblur="validarNome(this)" />
+            </div>
+            <div class="form-group">
+                <label for="CPF" class="required">CPF</label>
+                <input id="cpf" type="text" class="input-control" placeholder="CPF*" maxlength="14"
+                    onblur="validarCPF(this)" onKeyPress="MascaraGenerica(this, 'CPF');" required />
+
+                <label for="RG">RG</label>
+                <input id="rg" type="number" class="input-control" placeholder="RG" maxlength="13" onblur="validarRG(this)"/>
+                <select class="input-control">
+                    <option disabled selected value> Sexo </option>
+                    <option value="Feminino">Feminino</option>
+                    <option value="Masculino">Masculino</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="endereco">Endereço</label>
+                <input id="rua" type="text" onblur="validarEndereco(this)" class="input-control" placeholder="Endereço*"
+                    style="flex: 4 1" maxlength="100" required />
+
+                <label for="numero" class="required">Número</label>
+                <input id="numero" type="number" class="input-control" placeholder="Número*" style="flex: 1"
+                    onblur="validarNumero(this)" required />
+            </div>
+            <div class="form-group">
+                <label for="bairro">Bairro</label>
+                <input id="bairro" onblur="validarBairro(this)" type="text" class="input-control" placeholder="Bairro"
+                    style="flex: 4 1" />
+                <input for="cep" id="cep" class="input-control" placeholder="CEP" maxlength="10"
+                    onKeyPress="MascaraGenerica(this, 'CEP');" />
+            </div>
+            <div class="form-group">
+                <input id="cidade" onblur="validarCidade(this)" type="text" class="input-control"
+                    placeholder="Cidade" />
+                <select class="input-control">
+                    <option disabled selected value>Estado</option>
+                    <option value="AC">Acre</option>
+                    <option value="AL">Alagoas</option>
+                    <option value="AP">Amapá</option>
+                    <option value="AM">Amazonas</option>
+                    <option value="BA">Bahia</option>
+                    <option value="CE">Ceará</option>
+                    <option value="DF">Distrito Federal</option>
+                    <option value="ES">Espírito Santo</option>
+                    <option value="GO">Goiás</option>
+                    <option value="MA">Maranhão</option>
+                    <option value="MT">Mato Grosso</option>
+                    <option value="MS">Mato Grosso do Sul</option>
+                    <option value="MG">Minas Gerais</option>
+                    <option value="PA">Pará</option>
+                    <option value="PB">Paraíba</option>
+                    <option value="PR">Paraná</option>
+                    <option value="PE">Pernambuco</option>
+                    <option value="PI">Piauí</option>
+                    <option value="RJ">Rio de Janeiro</option>
+                    <option value="RN">Rio Grande do Norte</option>
+                    <option value="RS">Rio Grande do Sul</option>
+                    <option value="RO">Rondônia</option>
+                    <option value="RR">Roraima</option>
+                    <option value="SC">Santa Catarina</option>
+                    <option value="SP">São Paulo</option>
+                    <option value="SE">Sergipe</option>
+                    <option value="TO">Tocantins</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="Telefone Fixo">Telefone Fixo</label>
+                <input id="tel" id="telefonefixo" class="input-control" placeholder="Telefone fixo" maxlength="14"
+                    onblur="validarTelefoneFixo(this)" onKeyPress="MascaraGenerica(this, 'TELEFONE FIXO');" />
+                <label for="Telefone Celular" class="required">Telefone Celular</label>
+                <input id="telcelular" type="tel" maxlength="15" class="input-control" placeholder="Telefone celular*"
+                    onblur="validarTelefoneCelular(this)" onKeyPress="MascaraGenerica(this, 'TELEFONE CELULAR');" required />
+            </div>
+            <p>* Os campos são obrigatórios</p>
+            <div class="button-form">
+                <button type="reset" class="button">LIMPAR</button>
+                <button type="submit" class="button" value="Cadastrar" onclick="enviar(this)">ENVIAR</button>
+            </div>
+        </form>
+    </section>
+    <footer class="footer">
+        <a href="https://github.com/joevidal" target="_blank">GitHub José Carlos Vidal Neto</a>
+        <p>Desafio Cadastro Pessoal - Atração 2021.</p>
+    </footer>
+    <script src="js/script.js"></script>
+    <script src="js/masks.js"></script>
+    <script src="js/enviar.js"></script>
+</body>
+</html>
