@@ -63,9 +63,9 @@ function validarRG(valor) {
 
 function validarEndereco(valor) {
     if (valor.value == "") {
-        document.getElementById("rua").style.backgroundColor = "#fcc9c9";
+        document.getElementById("endereco").style.backgroundColor = "#fcc9c9";
     } else {
-        document.getElementById("rua").style.backgroundColor = "#fff";
+        document.getElementById("endereco").style.backgroundColor = "#fff";
     }
 }
 
@@ -103,11 +103,11 @@ formularioDeCadastro.addEventListener('submit', function (e) {
     let cpf = document.getElementById('cpf').value;
     let rg = document.getElementById('rg').value;
     let sexo = document.getElementById('sexo').value;
-    let rua = document.getElementById('rua').value;
+    let rua = document.getElementById('endereco').value;
     let numero = document.getElementById('numero').value;
     let bairro = document.getElementById('bairro').value;
     let cidade = document.getElementById('numero').value;
-    let uf = document.getElementById('uf').value;
+    let estado = document.getElementById('estado').value;
     let cep = document.getElementById('cep').value;
     let telefonefixo = document.getElementById('telefonefixo').value;
     let telefonecelular = document.getElementById('telefonecelular').value;
@@ -125,11 +125,11 @@ formularioDeCadastro.addEventListener('submit', function (e) {
             cpf: cpf,
             rg: rg,
             sexo: sexo,
-            rua: rua,
+            endereco: endereco,
             numero: numero,
             bairro: bairro,
             cidade: cidade,
-            uf: uf,
+            estado: estado,
             cep: cep,
             telefonefixo: telefonefixo,
             telefonecelular: telefonecelular
@@ -147,11 +147,11 @@ formularioDeCadastro.addEventListener('submit', function (e) {
     document.getElementById("cpf").value = "";
     document.getElementById("rg").value = "";
     document.getElementById("sexo").value = "";
-    document.getElementById("rua").value = "";
+    document.getElementById("endereco").value = "";
     document.getElementById("numero").value = "";
     document.getElementById("bairro").value = "";
     document.getElementById("cidade").value = "";
-    document.getElementById("uf").value = "";
+    document.getElementById("estado").value = "";
     document.getElementById("cep").value = "";
     document.getElementById("telefonefixo").value = "";
     document.getElementById("telefonecelular").value = "";
@@ -161,65 +161,8 @@ formularioDeCadastro.addEventListener('submit', function (e) {
 /* Autocompleta CEP CPF */
 /*function limpa_formulário_cep() {
     //Limpa valores do formulário de cep.
-    document.getElementById('rua').value = ("");
+    document.getElementById('endereco').value = ("");
     document.getElementById('bairro').value = ("");
     document.getElementById('cidade').value = ("");
-    document.getElementById('uf').value = ("");
+    document.getElementById('estado').value = ("");
 }*/
-
-function meu_callback(conteudo) {
-    if (!("erro" in conteudo)) {
-        //Atualiza os campos com os valores.
-        document.getElementById('rua').value = (conteudo.logradouro);
-        document.getElementById('bairro').value = (conteudo.bairro);
-        document.getElementById('cidade').value = (conteudo.localidade);
-        document.getElementById('uf').value = (conteudo.uf);
-    } //end if.
-    else {
-        //CEP não Encontrado.
-        limpa_formulário_cep();
-        alert("CEP não encontrado.");
-    }
-}
-
-function pesquisacep(valor) {
-
-    //Nova variável "cep" somente com dígitos.
-    var cep = valor.replace(/\D/g, '');
-
-    //Verifica se campo cep possui valor informado.
-    if (cep != "") {
-
-        //Expressão regular para validar o CEP.
-        var validacep = /^[0-9]{8}$/;
-
-        //Valida o formato do CEP.
-        if (validacep.test(cep)) {
-
-            //Preenche os campos com "..." enquanto consulta webservice.
-            //document.getElementById('rua').value = "...";
-            document.getElementById('bairro').value = "...";
-            document.getElementById('cidade').value = "...";
-            //document.getElementById('uf').value = "...";
-
-            //Cria um elemento javascript.
-            var script = document.createElement('script');
-
-            //Sincroniza com o callback.
-            script.src = 'https://viacep.com.br/ws/' + cep + '/json/?callback=meu_callback';
-
-            //Insere script no documento e carrega o conteúdo.
-            document.body.appendChild(script);
-
-        } //end if.
-        else {
-            //cep é inválido.
-            limpa_formulário_cep();
-            alert("Formato de CEP inválido.");
-        }
-    } //end if.
-    else {
-        //cep sem valor, limpa formulário.
-        limpa_formulário_cep();
-    }
-};

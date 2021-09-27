@@ -1,6 +1,6 @@
+# 
 # Repositório para colocar os arquivos relacionados ao Desafio Itaú
-# 
-# 
+#  
 # Criar um formulario para registrar dados pessoais
 # 
 # Front
@@ -20,3 +20,5 @@
 # O desafio é individual
 # Não usar frameworks de estilo como Bootstrap, Google Material e demais.
 # Os entregáveis descritos acima são requisitos básicos para apresentação no dia da entrevista, ficando a critério do candidato, se quiser e estiver apto a melhorar o desafio de alguma forma, com os conhecimentos adquiridos durante a trilha de especialização.
+#
+# https://github.com/educacao-gama/desafios-gama/tree/main/cadastro%20simples/atracao
