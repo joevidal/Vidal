@@ -126,7 +126,7 @@ label.required:after {
 footer {
     text-align: center;
     padding: 1em;
-    position: fixed;
+    position: inherit;
     left: 0;
     bottom: 20px;
     width: 100%;
